@@ -11,13 +11,13 @@ export const VEHICLES: Vehicle[] = [
     id: "geely-shaniao",
     passengers: 6,
     luggage: 6,
-    image: "/Auto1.jpg",
+    image: "/auto1.jpg",
   },
   {
     id: "staria-sbc",
     passengers: 10,
     luggage: 10,
-    image: "/Auto2.jpg",
+    image: "/auto2.jpg",
   },
   {
     id: "renault-master",
@@ -29,7 +29,7 @@ export const VEHICLES: Vehicle[] = [
     id: "sprinter",
     passengers: 19,
     luggage: 15,
-    image: "/Auto4.webp",
+    image: "/auto4.webp",
   },
 ];
 
