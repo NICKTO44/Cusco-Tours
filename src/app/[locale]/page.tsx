@@ -1,3 +1,5 @@
+export const revalidate = 60
+
 import { setRequestLocale } from "next-intl/server";
 import { HeroSection } from "@/components/home/HeroSection";
 import { FeaturedToursSection } from "@/components/home/FeaturedToursSection";

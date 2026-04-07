@@ -1,3 +1,5 @@
+export const revalidate = 60
+
 import { setRequestLocale } from "next-intl/server";
 import { getTranslations } from "next-intl/server";
 import { getTours } from "@/lib/queries";
