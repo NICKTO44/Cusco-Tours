@@ -1,0 +1,249 @@
+{
+  "metadata": {
+  "title": "Mascca Tours Cusco | Tours & VIP Taxi in Cusco, Peru",
+  "description": "Travel agency in Cusco: Machu Picchu tours, Rainbow Mountain, Sacred Valley & VIP airport taxi. Best rates guaranteed, no hidden fees. Book 24/7."
+},
+  "nav": {
+    "tours": "Tours",
+    "mobility": "Mobility",
+    "gallery": "Gallery",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "book": "Book now",
+    "tips": "Machu Picchu tips",
+    "reservations": "Reservations"
+  },
+  "footer": {
+    "tagline": "Best rates guaranteed · No hidden fees · 24/7 bookings",
+    "rights": "All rights reserved.",
+    "follow": "Follow us",
+    "whatsapp": "WhatsApp"
+  },
+  "hero": {
+    "title": "Discover the Magic of Cusco",
+    "subtitle": "Tours & Private Mobility — 24/7",
+    "slogan": "Best rate guaranteed | No hidden fees | 24/7 bookings",
+    "ctaTours": "View tours",
+    "ctaWhatsapp": "WhatsApp"
+  },
+  "sections": {
+    "featuredTours": "Featured tours",
+    "featuredToursDesc": "Hand-picked experiences with transparent pricing and expert guides.",
+    "privateMobility": "Private mobility",
+    "privateMobilityDesc": "Modern vehicles and professional drivers — your schedule, your route.",
+    "whyUs": "Why travel with us",
+    "gallery": "Gallery",
+    "galleryDesc": "Moments from Cusco, the Sacred Valley, and beyond.",
+    "testimonials": "What travelers say",
+    "faq": "Frequently asked questions",
+    "finalCta": "Ready for your adventure?",
+    "finalCtaDesc": "Message us on WhatsApp — we reply fast and tailor every trip.",
+    "viewAllTours": "View all tours",
+    "viewGallery": "Full gallery",
+    "viewFaq": "More questions"
+  },
+  "why": {
+    "fleet": { "title": "Own fleet", "desc": "Vehicles we maintain and operate for punctual, safe rides." },
+    "guides": { "title": "Local guides", "desc": "Passionate cusqueños who bring history and culture to life." },
+    "support": { "title": "24/7 support", "desc": "Assistance before and during your trip, whenever you need it." },
+    "value": { "title": "Fair pricing", "desc": "Clear rates with no hidden fees — value you can trust." }
+  },
+  "mobility": {
+    "title": "Private mobility",
+    "intro": "Airport pickups, station runs, and long-distance routes across the region.",
+    "badge": "Own fleet",
+    "routesTitle": "Routes & rates",
+    "consult": "Price on request",
+    "fromUsd": "From {amount} USD",
+    "vehicleColumn": "Vehicle",
+    "priceUsd": "Price (USD)",
+    "capacitySummary": "{passengers} passengers · {luggage} bags",
+    "ctaWhatsapp": "Book via WhatsApp",
+    "ctaReserve": "Book & pay online",
+    "vehicles": {
+      "geely-shaniao": { "short": "Geely", "name": "Geely Shaniao" },
+      "staria-sbc": { "short": "Staria", "name": "Staria (SBC)" },
+      "renault-master": { "short": "Renault", "name": "Renault Master" },
+      "sprinter": { "short": "Sprinter", "name": "Sprinter" }
+    },
+    "routes": {
+      "airport-hotel-cusco": { "name": "Airport ↔ Cusco hotel", "desc": "Direct transfer between the airport and your accommodation in Cusco." },
+      "airport-poroy": { "name": "Airport ↔ Poroy station", "desc": "Connection for trains to Machu Picchu (Poroy station)." },
+      "airport-ollantaytambo": { "name": "Airport ↔ Ollantaytambo", "desc": "Transfer to the heart of the Sacred Valley." },
+      "city-tour-5h": { "name": "City tour 5h", "desc": "Urban loop through Cusco’s main highlights." },
+      "city-tour-pisac-9h": { "name": "City tour + Pisac 9h", "desc": "Combined day: imperial city and Pisac archaeological market." },
+      "laguna-humantay": { "name": "Humantay Lagoon", "desc": "Private mobility for this high-altitude excursion." },
+      "puente-qeswachaka-4-lagos": { "name": "Q'eswachaka bridge + 4 lagoons", "desc": "Route to the rope bridge and lagoon circuit." },
+      "maras-moray-ruta-movilidad": { "name": "Maras Moray Salt Mines", "desc": "Private transfer to circular terraces and salt pans." }
+    }
+  },
+  "tours": {
+    "pageTitle": "Our tours",
+    "pageDesc": "Explore Cusco and its icons with bilingual guides and comfortable transport.",
+    "from": "From",
+    "pricePerPersonGroup": "per person (group)",
+    "hours": "{count} hours",
+    "fullDay": "Full day",
+    "includes": "Includes",
+    "detail": "Tour details",
+    "notFound": "Tour not found",
+    "items": {
+      "machu-picchu-full-day": {
+        "name": "Machu Picchu Full Day",
+        "short": "The citadel in one unforgettable day.",
+        "includes": "Transport, guide, tickets per itinerary",
+        "long": "Journey to one of the New Wonders of the World with coordinated logistics, experienced guidance, and time to soak in the scenery."
+      },
+      "city-tour-cusco": {
+        "name": "City Tour Cusco",
+        "short": "Temples, plazas, and living history.",
+        "includes": "Transport, guide",
+        "long": "Discover Sacsayhuamán, Qorikancha, and the vibrant streets of the imperial capital."
+      },
+      "montana-de-colores": {
+        "name": "Rainbow Mountain",
+        "short": "Vinicunca under open skies.",
+        "includes": "Transport, guide",
+        "long": "Early departure, acclimatization tips, and guided support on a high-altitude trek to the rainbow mountain."
+      },
+      "maras-moray-minas-de-sal": {
+        "name": "Maras Moray Salt Mines",
+        "short": "Circular terraces and ancient salt pans.",
+        "includes": "Transport, guide",
+        "long": "Visit Moray’s agricultural laboratory and the Maras salt ponds with time for photos and local culture."
+      },
+      "valle-sur": {
+        "name": "South Valley",
+        "short": "Tipón, Pikillacta, and Andahuaylillas.",
+        "includes": "Transport, guide",
+        "long": "A circuit through the south valley: Inca hydraulics, pre-Inca Pikillacta, and the “Sistine Chapel of the Americas.”"
+      },
+      "valle-sagrado-vip": {
+        "name": "Sacred Valley VIP",
+        "short": "A premium Sacred Valley experience.",
+        "includes": "Transport, guide, VIP service",
+        "long": "Sacred Valley with a VIP focus: comfort, flexible pacing, and the best viewpoints and sites for your interests."
+      }
+    }
+  },
+  "galleryPage": {
+    "title": "Gallery",
+    "subtitle": "Cusco, Machu Picchu, and the Sacred Valley through our lens."
+  },
+  "galleryAlt": {
+    "mp": "Machu Picchu ruins",
+    "cusco": "Cusco historic streets",
+    "valley": "Sacred Valley landscape",
+    "mountains": "Andean mountains",
+    "lake": "Lake Titicaca",
+    "llamas": "Llamas in the Andes"
+  },
+  "tips": {
+    "title": "Machu Picchu tips",
+    "subtitle": "Practical advice for a smooth visit.",
+    "items": {
+      "tickets": { "title": "Book tickets early", "body": "Entrances sell out — reserve weeks ahead in high season." },
+      "hydrate": { "title": "Hydrate and acclimatize", "body": "Spend 1–2 days in Cusco before intense hikes; drink water often." },
+      "layers": { "title": "Dress in layers", "body": "Mountain weather shifts fast — sun, wind, and rain in one day." },
+      "cash": { "title": "Carry small cash", "body": "Some villages and restrooms only accept soles in cash." }
+    }
+  },
+  "faqPage": {
+    "title": "FAQ",
+    "subtitle": "Answers before you pack your bags."
+  },
+  "faq": {
+    "q1": { "q": "Do you pick up at the airport?", "a": "Yes — we offer private transfers from Alejandro Velasco Astete Airport to your hotel in Cusco." },
+    "q2": { "q": "Are guides bilingual?", "a": "Our team offers Spanish and English guidance on scheduled tours." },
+    "q3": { "q": "Can I customize an itinerary?", "a": "Absolutely — share dates, group size, and interests and we’ll tailor options." },
+    "q4": { "q": "How do payments work?", "a": "You can confirm via WhatsApp or use our online form with PayPal for secure payment." }
+  },
+  "testimonials": {
+    "t1": { "name": "Emma, UK", "text": "Seamless Machu Picchu day — punctual driver, knowledgeable guide, stunning views." },
+    "t2": { "name": "Carlos, México", "text": "Sacred Valley VIP exceeded expectations — comfort, great pacing, and an excellent guide." },
+    "t3": { "name": "Sophie, Canada", "text": "Airport transfer and city tour were flawless — highly recommend Mascca." }
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "We’re here to plan your Cusco adventure. Email info@masccatourscusco.com or message us on WhatsApp.",
+    "address": "Cusco, Peru",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone / WhatsApp",
+    "hours": "We respond daily, including weekends.",
+    "mapTitle": "Find us in Cusco"
+  },
+  "reservations": {
+    "title": "Reservations",
+    "subtitle": "Choose a tour or private transfer, add the details, then pay with PayPal or send the full summary on WhatsApp in one tap.",
+    "whatsapp": "Send summary on WhatsApp",
+    "formTitle": "Book & pay online",
+    "stepLabel": "Step {current} of {total}",
+    "back": "Back",
+    "next": "Next",
+    "fullName": "Full name",
+    "email": "Email",
+    "phone": "Phone",
+    "service": "Tour or service",
+    "selectService": "Select an option",
+    "date": "Preferred date",
+    "guests": "Number of guests",
+    "message": "Additional notes (optional)",
+    "submit": "Continue to PayPal",
+    "turnstile": "Verify you are human",
+    "successRedirect": "After payment you’ll be redirected to a thank-you page.",
+    "step1Title": "Service type",
+    "step2Title": "Service details",
+    "step3Title": "Contact & payment",
+    "pickTour": "Tour",
+    "pickMobility": "Private mobility",
+    "selectTour": "Selected tour",
+    "tourDate": "Tour date",
+    "adults": "Adults",
+    "children": "Children",
+    "hotelPickup": "Pickup hotel",
+    "pickupTimeApprox": "Approx. pickup time",
+    "tourNotes": "Additional request",
+    "selectRoute": "Route",
+    "vehiclePreferred": "Preferred vehicle",
+    "passengers": "Passengers",
+    "luggage": "Luggage pieces",
+    "mobilityDateTime": "Pickup date & time",
+    "pickupPoint": "Pickup location",
+    "destinationPoint": "Destination",
+    "mobilityNotes": "Additional request",
+    "summary": "Summary",
+    "estimatedTotal": "Estimated total (USD)",
+    "perGroupNote": "Tours: per person in a group. Mobility: vehicle rate for the route you chose.",
+    "paypalHint": "The PayPal amount matches the estimated total from your selections.",
+    "errors": {
+      "required": "This field is required",
+      "email": "Enter a valid email",
+      "minGuests": "At least one guest",
+      "minAdults": "At least one adult",
+      "minPassengers": "At least one passenger",
+      "turnstile": "Please complete the verification",
+      "selectServiceType": "Choose tour or mobility",
+      "selectVehicle": "Choose a vehicle"
+    }
+  },
+  "thanks": {
+    "title": "Thank you!",
+    "body": "We received your booking request. Our team will confirm details shortly.",
+    "cta": "Back to home"
+  },
+  "common": {
+    "bookWhatsapp": "Book via WhatsApp",
+    "bookOnline": "Book & pay online",
+    "learnMore": "Learn more",
+    "usd": "USD"
+  },
+  "whatsapp": {
+    "welcome": "Hello Mascca Tours! I’d love to plan my trip to Cusco.",
+    "reservation": "Hello Mascca Tours! I’d like to book:\n🗺️ Tour/service: {service}\n📅 Preferred date: \n👥 Number of people: \n📝 Notes:"
+  },
+  "paypal": {
+    "pay": "Pay with PayPal",
+    "disabled": "Configure NEXT_PUBLIC_PAYPAL_CLIENT_ID to enable PayPal.",
+    "clientNote": "Use sandbox keys for testing."
+  }
+}
