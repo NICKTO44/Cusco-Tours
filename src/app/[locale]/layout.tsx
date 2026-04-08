@@ -31,7 +31,7 @@ export async function generateMetadata({
   return {
     title: {
       default: messages.metadata.title,
-      template: `%s | Mascca Tours Cusco`,
+      template: `%s | Cusco Mascca Tours`,
     },
     description: messages.metadata.description,
     metadataBase: new URL(base),
@@ -46,10 +46,10 @@ export async function generateMetadata({
       type: "website",
       locale: locale === "es" ? "es_PE" : "en_US",
       url: base,
-      siteName: "Mascca Tours Cusco",
+      siteName: "Cusco Mascca Tours",
       title: messages.metadata.title,
       description: messages.metadata.description,
-      images: [{ url: `${base}/og-image.jpg`, width: 1200, height: 630, alt: "Mascca Tours Cusco" }],
+      images: [{ url: `${base}/og-image.jpg`, width: 1200, height: 630, alt: "Cusco Mascca Tours" }],
     },
     twitter: {
       card: "summary_large_image",

@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const base = "https://cuscomasccatour.com";
   const isEs = locale === "es";
   return {
-    title: isEs ? "Mascca Tours Cusco | Tours y Taxi VIP en Cusco, Perú" : "Mascca Tours Cusco | Tours & VIP Taxi in Cusco, Peru",
+    title: isEs ? "Cusco Mascca Tours | Tours y Taxi VIP en Cusco, Perú" : "Cusco Mascca Tours | Tours & VIP Taxi in Cusco, Peru",
     description: isEs
       ? "Agencia de tours en Cusco: Machu Picchu, Montaña de Colores, Valle Sagrado y taxi VIP aeropuerto. Mejor tarifa garantizada. Reservas 24/7."
       : "Travel agency in Cusco: Machu Picchu, Rainbow Mountain, Sacred Valley & VIP airport taxi. Best rates guaranteed. Book 24/7.",

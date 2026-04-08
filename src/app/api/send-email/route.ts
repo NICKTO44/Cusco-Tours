@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server'
 const resend = new Resend(process.env.RESEND_API_KEY)
 
 const OWNER_EMAIL = 'kamito1809@gmail.com'
-const FROM_EMAIL = 'Mascca Tours Cusco <onboarding@resend.dev>'
+const FROM_EMAIL = 'cusco mascca tours <onboarding@resend.dev>'
 
 export async function POST(req: Request) {
   try {
@@ -16,11 +16,11 @@ export async function POST(req: Request) {
     await resend.emails.send({
       from: FROM_EMAIL,
       to: clientEmail,
-      subject: `✅ Confirmación de reserva — Mascca Tours Cusco`,
+      subject: `✅ Confirmación de reserva — Cusco Mascca Tours`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <div style="background: #2d6a4f; padding: 24px; text-align: center;">
-            <h1 style="color: white; margin: 0;">Mascca Tours Cusco</h1>
+            <h1 style="color: white; margin: 0;">Cusco Mascca Tours</h1>
           </div>
           <div style="padding: 32px; background: #f9f9f9;">
             <h2 style="color: #2d6a4f;">¡Reserva recibida, ${clientName}!</h2>
@@ -41,7 +41,7 @@ export async function POST(req: Request) {
             </div>
           </div>
           <div style="background: #2d6a4f; padding: 16px; text-align: center;">
-            <p style="color: white; margin: 0; font-size: 12px;">© 2025 Mascca Tours Cusco — info@masccatourscusco.com</p>
+            <p style="color: white; margin: 0; font-size: 12px;">© 2025 Cusco Mascca Tours — info@cuscomasccatour.com</p>
           </div>
         </div>
       `,
