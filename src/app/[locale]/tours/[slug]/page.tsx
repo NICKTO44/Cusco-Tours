@@ -71,7 +71,7 @@ export default async function TourDetailPage({ params }: Props) {
     : t(`items.${tour.slug}.includes`);
 
   const duration = fromSanity
-    ? `${tour.durationHours} ${t("hours", { count: tour.durationHours ?? 0 })}`
+  ? t("hours", { count: tour.durationHours ?? 0 })  // ← solo esto
     : tour.durationLabelKey === "fullDay"
     ? t("fullDay")
     : t("hours", { count: tour.durationHours ?? 0 });
