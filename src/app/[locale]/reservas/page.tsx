@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const base = "https://cuscomasccatour.com";
   const isEs = locale === "es";
   return {
-    title: isEs ? "Reservas Online | Mascca Tours Cusco" : "Book Online | Mascca Tours Cusco",
+    title: isEs ? "Reservas Online | Cusco Mascca Tours" : "Book Online | Cusco Mascca Tours",
     description: isEs
       ? "Reserva tu tour o movilidad privada en Cusco. Paga con PayPal o confirma por WhatsApp. Proceso rápido, seguro y sin cargos ocultos."
       : "Book your Cusco tour or private transfer online. Pay with PayPal or confirm via WhatsApp. Fast, secure, no hidden fees.",
