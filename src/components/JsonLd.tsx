@@ -8,7 +8,7 @@ export function JsonLd() {
       image: "https://cuscomasccatour.com/og-image.jpg",
       description: "Agencia de tours y movilidad privada en Cusco, Perú. Tours a Machu Picchu, Montaña de Colores, Valle Sagrado y taxi VIP aeropuerto.",
       telephone: "+51927591622",
-      email: "info@masccatourscusco.com",
+      email: "masccatourscusco@gmail.com",
       address: {
         "@type": "PostalAddress",
         addressLocality: "Cusco",

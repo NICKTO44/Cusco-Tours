@@ -9,6 +9,7 @@ import { Footer } from "@/components/layout/Footer";
 import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
 import { HtmlLang } from "@/components/layout/HtmlLang";
 import { JsonLd } from "@/components/JsonLd";
+
 type Props = {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
@@ -35,6 +36,11 @@ export async function generateMetadata({
     },
     description: messages.metadata.description,
     metadataBase: new URL(base),
+    icons: {
+      icon: "/favicon.ico",
+      shortcut: "/favicon.ico",
+      apple: "/favicon.ico",
+    },
     keywords: locale === "es"
       ? ["tours en Cusco", "tours Cusco Perú", "Machu Picchu tour", "Montaña de Colores", "taxi aeropuerto Cusco", "movilidad privada Cusco", "agencia de viajes Cusco", "Valle Sagrado tour"]
       : ["Cusco tours", "Machu Picchu tour Peru", "Rainbow Mountain", "Cusco airport taxi", "private transfer Cusco", "travel agency Cusco Peru"],
@@ -72,7 +78,7 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <NextIntlClientProvider messages={messages}>
-      <JsonLd /> 
+      <JsonLd />
       <HtmlLang />
       <div className="flex min-h-screen flex-col">
         <Navbar />
