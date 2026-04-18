@@ -16,7 +16,7 @@ const links = [
 ];
 
 const socials = [
-  { href: "https://facebook.com", label: "Facebook", icon: "f" },
+  { href: "https://www.facebook.com/movilidadprivadacusco", label: "Facebook", icon: "f" },
   { href: "https://instagram.com", label: "Instagram", icon: "ig" },
   { href: "https://tripadvisor.com", label: "TripAdvisor", icon: "ta" },
 ];
