@@ -163,7 +163,7 @@ export function ReservationForm({ sanityTours, sanityRoutes, locale }: Props) {
 
   const goBack = () => setStep((s) => Math.max(0, s - 1));
 
-  const sendEmail = async (values: WizardReservationValues, serviceName: string, totalUsd: number | null) => {
+  const sendEmail = async (values: WizardReservationValues, serviceName: string, totalUsd: number | null, paidWithPaypal = false) => {
     try {
       const people = values.serviceType === "tour"
         ? `${values.adults} adultos, ${values.children} niños`
@@ -183,6 +183,7 @@ export function ReservationForm({ sanityTours, sanityRoutes, locale }: Props) {
           pickupTime: values.pickupTimeApprox || null,
           totalUsd,
           notes: values.tourNotes || values.mobilityNotes || null,
+          paidWithPaypal,
         }),
       });
     } catch (e) {
@@ -231,7 +232,7 @@ export function ReservationForm({ sanityTours, sanityRoutes, locale }: Props) {
       if (values.mobilityNotes?.trim()) lines.push(`Notas: ${values.mobilityNotes}`);
       lines.push(`Total estimado: ${price != null ? `$${price}` : "—"}`);
     }
-    await sendEmail(values, serviceName, totalUsd);
+    await sendEmail(values, serviceName, totalUsd, false);
     window.open(whatsappHref(lines.join("\n")), "_blank", "noopener,noreferrer");
     router.push("/gracias");
   });
@@ -533,83 +534,81 @@ export function ReservationForm({ sanityTours, sanityRoutes, locale }: Props) {
               <p className="text-sm text-amber-800">{t("errors.required")}</p>
             ) : (
               <div className="min-h-[120px]">
-               <PayPalScriptProvider options={{ clientId: paypalClientId, currency: "USD", intent: "capture" }}>
-  <PayPalButtons
-    style={{ layout: "vertical", shape: "rect", label: "pay" }}
-    disabled={!canPay}
-    forceReRender={[paypalAmount, paypalDescription, canPay]}
-    createOrder={(_, actions) => actions.order.create({
-      intent: "CAPTURE",
-      purchase_units: [{ description: paypalDescription, amount: { currency_code: "USD", value: paypalAmount } }],
-    })}
-    onApprove={(_, actions) =>
-      actions.order!.capture().then(async () => {
-        const values: WizardReservationValues = {
-          fullName,
-          email,
-          phone,
-          serviceType,
-          tourSlug,
-          tourDate,
-          adults,
-          children,
-          hotelPickup,
-          pickupTimeApprox,
-          tourNotes,
-          routeId,
-          vehicleId,
-          mobilityDateTime,
-          pickupPoint,
-          destinationPoint,
-          passengers,
-          luggage,
-          mobilityNotes,
-        };
+                <PayPalScriptProvider options={{ clientId: paypalClientId, currency: "USD", intent: "capture" }}>
+                  <PayPalButtons
+                    style={{ layout: "vertical", shape: "rect", label: "pay" }}
+                    disabled={!canPay}
+                    forceReRender={[paypalAmount, paypalDescription, canPay]}
+                    createOrder={(_, actions) => actions.order.create({
+                      intent: "CAPTURE",
+                      purchase_units: [{ description: paypalDescription, amount: { currency_code: "USD", value: paypalAmount } }],
+                    })}
+                    onApprove={(data, actions) =>
+                      actions.order!.capture().then(async () => {
+                        const values: WizardReservationValues = {
+                          fullName, email, phone, serviceType, tourSlug, tourDate,
+                          adults, children, hotelPickup, pickupTimeApprox, tourNotes,
+                          routeId, vehicleId, mobilityDateTime, pickupPoint,
+                          destinationPoint, passengers, luggage, mobilityNotes,
+                        };
 
-        const serviceName = serviceType === "tour" ? tourName : routeName;
+                        const serviceName = serviceType === "tour" ? tourName : routeName;
 
-        // 1. Enviar email
-        await sendEmail(values, serviceName, estimatedUsd);
+                        // 1. Enviar email con paidWithPaypal=true
+                        await sendEmail(values, serviceName, estimatedUsd, true);
 
-        // 2. Abrir WhatsApp
-        const lines: string[] = [
-          `*${SITE.name} — Pago confirmado por PayPal ✅*`,
-          `Nombre: ${fullName}`,
-          `Email: ${email}`,
-          `Teléfono: ${phone}`,
-          "",
-        ];
+                        // 2. Reportar venta a Google Analytics
+                        if (typeof window !== "undefined" && typeof (window as any).gtag === "function") {
+                          (window as any).gtag("event", "purchase", {
+                            transaction_id: data.orderID,
+                            value: estimatedUsd,
+                            currency: "USD",
+                            items: [{
+                              item_id: serviceType === "tour" ? tourSlug : routeId,
+                              item_name: serviceName,
+                              item_category: serviceType === "tour" ? "Tour" : "Movilidad",
+                              price: estimatedUsd,
+                              quantity: 1,
+                            }],
+                          });
+                        }
 
-        if (serviceType === "tour") {
-          lines.push(`*Tour*`);
-          lines.push(`Tour: ${tourName}`);
-          lines.push(`Fecha: ${tourDate || "—"}`);
-          lines.push(`Adultos: ${adults} · Niños: ${children}`);
-          lines.push(`Hotel recogida: ${hotelPickup || "—"}`);
-          lines.push(`Hora aprox: ${pickupTimeApprox || "—"}`);
-          if (tourNotes?.trim()) lines.push(`Notas: ${tourNotes}`);
-        } else {
-          lines.push(`*Movilidad Privada*`);
-          lines.push(`Ruta: ${routeName}`);
-          lines.push(`Vehículo: ${vehicleName}`);
-          lines.push(`Fecha y hora: ${mobilityDateTime || "—"}`);
-          lines.push(`Recogida: ${pickupPoint || "—"}`);
-          lines.push(`Destino: ${destinationPoint || "—"}`);
-          lines.push(`Pasajeros: ${passengers} · Maletas: ${luggage}`);
-          if (mobilityNotes?.trim()) lines.push(`Notas: ${mobilityNotes}`);
-        }
+                        // 3. Abrir WhatsApp
+                        const lines: string[] = [
+                          `*${SITE.name} — Pago confirmado por PayPal ✅*`,
+                          `Nombre: ${fullName}`,
+                          `Email: ${email}`,
+                          `Teléfono: ${phone}`,
+                          "",
+                        ];
+                        if (serviceType === "tour") {
+                          lines.push(`*Tour*`);
+                          lines.push(`Tour: ${tourName}`);
+                          lines.push(`Fecha: ${tourDate || "—"}`);
+                          lines.push(`Adultos: ${adults} · Niños: ${children}`);
+                          lines.push(`Hotel recogida: ${hotelPickup || "—"}`);
+                          lines.push(`Hora aprox: ${pickupTimeApprox || "—"}`);
+                          if (tourNotes?.trim()) lines.push(`Notas: ${tourNotes}`);
+                        } else {
+                          lines.push(`*Movilidad Privada*`);
+                          lines.push(`Ruta: ${routeName}`);
+                          lines.push(`Vehículo: ${vehicleName}`);
+                          lines.push(`Fecha y hora: ${mobilityDateTime || "—"}`);
+                          lines.push(`Recogida: ${pickupPoint || "—"}`);
+                          lines.push(`Destino: ${destinationPoint || "—"}`);
+                          lines.push(`Pasajeros: ${passengers} · Maletas: ${luggage}`);
+                          if (mobilityNotes?.trim()) lines.push(`Notas: ${mobilityNotes}`);
+                        }
+                        lines.push("");
+                        lines.push(`💰 Total pagado: $${paypalAmount} USD`);
+                        window.open(whatsappHref(lines.join("\n")), "_blank", "noopener,noreferrer");
 
-        lines.push("");
-        lines.push(`💰 Total pagado: $${paypalAmount} USD`);
-
-        window.open(whatsappHref(lines.join("\n")), "_blank", "noopener,noreferrer");
-
-        // 3. Redirigir a página de gracias
-        router.push("/gracias");
-      })
-    }
-  />
-</PayPalScriptProvider>
+                        // 4. Redirigir a página de gracias
+                        router.push("/gracias");
+                      })
+                    }
+                  />
+                </PayPalScriptProvider>
                 <p className="mt-2 text-xs text-earth-500">{tp("clientNote")}</p>
               </div>
             )}
