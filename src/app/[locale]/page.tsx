@@ -44,9 +44,9 @@ export default async function HomePage({ params }: Props) {
       <MobilityTeaserSection />
       <WhyUsSection />
       <GalleryTeaserSection />
-      {/* <TestimonialsSection /> */}
-      <FaqTeaserSection />
-      <FinalCtaSection />
+       <TestimonialsSection /> 
+      {/* <FaqTeaserSection /> */}
+      {/* <FinalCtaSection /> */}
     </>
   );
 }
