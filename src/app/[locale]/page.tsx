@@ -13,8 +13,8 @@ import { getTours } from "@/lib/queries";
 import { TOURS } from "@/data/tours";
 import type { Metadata } from "next";
 
-
 type Props = { params: Promise<{ locale: string }> };
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const base = "https://cuscomasccatour.com";
@@ -24,7 +24,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: isEs
       ? "Agencia de tours en Cusco: Machu Picchu, Montaña de Colores, Valle Sagrado y taxi VIP aeropuerto. Mejor tarifa garantizada. Reservas 24/7."
       : "Travel agency in Cusco: Machu Picchu, Rainbow Mountain, Sacred Valley & VIP airport taxi. Best rates guaranteed. Book 24/7.",
-    alternates: { canonical: `${base}/${locale}` },
+    alternates: {
+      canonical: locale === "es" ? base : `${base}/en`,
+    },
   };
 }
 
@@ -33,7 +35,6 @@ export default async function HomePage({ params }: Props) {
   setRequestLocale(locale);
 
   let tours = await getTours();
-  console.log("TOURS FROM SANITY:", JSON.stringify(tours));
   if (!tours || tours.length === 0) tours = TOURS;
 
   return (
@@ -43,7 +44,7 @@ export default async function HomePage({ params }: Props) {
       <MobilityTeaserSection />
       <WhyUsSection />
       <GalleryTeaserSection />
-     {/* <TestimonialsSection /> */}
+      {/* <TestimonialsSection /> */}
       <FaqTeaserSection />
       <FinalCtaSection />
     </>
