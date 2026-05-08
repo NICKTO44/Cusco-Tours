@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 type Item = {
   id: string;
-  category: string;
+  category?: string;
   question: string;
   answer: string;
 };
@@ -18,7 +18,7 @@ type Category = {
 
 type Props = {
   items: Item[];
-  categories: Category[];
+  categories?: Category[];
   className?: string;
 };
 
@@ -28,42 +28,45 @@ const CTA_CATEGORIES = new Set(["booking", "trust", "tours"]);
 export function FaqAccordion({ items, categories, className = "" }: Props) {
   const [open, setOpen] = useState<string | null>(items[0]?.id ?? null);
   const [activeCategory, setActiveCategory] = useState<string>("all");
+  const hasCategories = (categories?.length ?? 0) > 0;
 
   const filtered =
-    activeCategory === "all"
+    !hasCategories || activeCategory === "all"
       ? items
       : items.filter((item) => item.category === activeCategory);
 
   return (
     <div className={className}>
       {/* ── Category filter pills ── */}
-      <div className="mb-8 flex flex-wrap gap-2">
-        <button
-          type="button"
-          onClick={() => { setActiveCategory("all"); setOpen(null); }}
-          className={`rounded-full px-4 py-1.5 text-sm font-medium transition-all ${
-            activeCategory === "all"
-              ? "bg-jungle-800 text-earth-50 shadow-sm"
-              : "bg-white text-earth-700 ring-1 ring-earth-200 hover:ring-earth-400"
-          }`}
-        >
-          Todas
-        </button>
-        {categories.map((cat) => (
+      {hasCategories && (
+        <div className="mb-8 flex flex-wrap gap-2">
           <button
-            key={cat.key}
             type="button"
-            onClick={() => { setActiveCategory(cat.key); setOpen(null); }}
+            onClick={() => { setActiveCategory("all"); setOpen(null); }}
             className={`rounded-full px-4 py-1.5 text-sm font-medium transition-all ${
-              activeCategory === cat.key
+              activeCategory === "all"
                 ? "bg-jungle-800 text-earth-50 shadow-sm"
                 : "bg-white text-earth-700 ring-1 ring-earth-200 hover:ring-earth-400"
             }`}
           >
-            {cat.icon} {cat.label}
+            Todas
           </button>
-        ))}
-      </div>
+          {categories?.map((cat) => (
+            <button
+              key={cat.key}
+              type="button"
+              onClick={() => { setActiveCategory(cat.key); setOpen(null); }}
+              className={`rounded-full px-4 py-1.5 text-sm font-medium transition-all ${
+                activeCategory === cat.key
+                  ? "bg-jungle-800 text-earth-50 shadow-sm"
+                  : "bg-white text-earth-700 ring-1 ring-earth-200 hover:ring-earth-400"
+              }`}
+            >
+              {cat.icon} {cat.label}
+            </button>
+          ))}
+        </div>
+      )}
 
       {/* ── Accordion ── */}
       <AnimatePresence mode="wait">
@@ -77,8 +80,8 @@ export function FaqAccordion({ items, categories, className = "" }: Props) {
         >
           {filtered.map((item) => {
             const isOpen = open === item.id;
-            const cat = categories.find((c) => c.key === item.category);
-            const showCta = CTA_CATEGORIES.has(item.category);
+            const cat = categories?.find((c) => c.key === item.category);
+            const showCta = item.category ? CTA_CATEGORIES.has(item.category) : false;
 
             return (
               <div
