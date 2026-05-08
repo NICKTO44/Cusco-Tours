@@ -70,7 +70,7 @@
       "airport-hotel-cusco": { "name": "Airport ↔ Cusco hotel", "desc": "Direct transfer between the airport and your accommodation in Cusco." },
       "airport-poroy": { "name": "Airport ↔ Poroy station", "desc": "Connection for trains to Machu Picchu (Poroy station)." },
       "airport-ollantaytambo": { "name": "Airport ↔ Ollantaytambo", "desc": "Transfer to the heart of the Sacred Valley." },
-      "city-tour-5h": { "name": "City tour 5h", "desc": "Urban loop through Cusco’s main highlights." },
+      "city-tour-5h": { "name": "City tour 5h", "desc": "Urban loop through Cusco's main highlights." },
       "city-tour-pisac-9h": { "name": "City tour + Pisac 9h", "desc": "Combined day: imperial city and Pisac archaeological market." },
       "laguna-humantay": { "name": "Humantay Lagoon", "desc": "Private mobility for this high-altitude excursion." },
       "puente-qeswachaka-4-lagos": { "name": "Q'eswachaka bridge + 4 lagoons", "desc": "Route to the rope bridge and lagoon circuit." },
@@ -110,13 +110,13 @@
         "name": "Maras Moray Salt Mines",
         "short": "Circular terraces and ancient salt pans.",
         "includes": "Transport, guide",
-        "long": "Visit Moray’s agricultural laboratory and the Maras salt ponds with time for photos and local culture."
+        "long": "Visit Moray's agricultural laboratory and the Maras salt ponds with time for photos and local culture."
       },
       "valle-sur": {
         "name": "South Valley",
         "short": "Tipón, Pikillacta, and Andahuaylillas.",
         "includes": "Transport, guide",
-        "long": "A circuit through the south valley: Inca hydraulics, pre-Inca Pikillacta, and the “Sistine Chapel of the Americas.”"
+        "long": "A circuit through the south valley: Inca hydraulics, pre-Inca Pikillacta, and the \"Sistine Chapel of the Americas.\""
       },
       "valle-sagrado-vip": {
         "name": "Sacred Valley VIP",
@@ -149,14 +149,91 @@
     }
   },
   "faqPage": {
-    "title": "FAQ",
-    "subtitle": "Answers before you pack your bags."
+    "title": "Frequently asked questions",
+    "subtitle": "Answers before you pack your bags.",
+    "ctaTitle": "Didn't find your answer?",
+    "ctaSubtitle": "Write to us and we'll respond within minutes, every day from 6am to 10pm.",
+    "ctaWhatsapp": "Chat on WhatsApp",
+    "ctaBook": "Book now"
   },
   "faq": {
-    "q1": { "q": "Do you pick up at the airport?", "a": "Yes — we offer private transfers from Alejandro Velasco Astete Airport to your hotel in Cusco." },
-    "q2": { "q": "Are guides bilingual?", "a": "Our team offers Spanish and English guidance on scheduled tours." },
-    "q3": { "q": "Can I customize an itinerary?", "a": "Absolutely — share dates, group size, and interests and we’ll tailor options." },
-    "q4": { "q": "How do payments work?", "a": "You can confirm via WhatsApp or use our online form with PayPal for secure payment." }
+    "categories": {
+      "logistics": "Transfers & logistics",
+      "tours": "Tours & experiences",
+      "booking": "Bookings & payments",
+      "health": "Altitude & health",
+      "trust": "Trust & guarantees"
+    },
+    "q1": {
+      "category": "logistics",
+      "q": "Do you pick up from the airport?",
+      "a": "Yes. We'll be waiting for you at the arrivals hall of Alejandro Velasco Astete Airport with a sign bearing your name. The transfer is in a private vehicle — no shared rides, no stops. If your flight is delayed, no problem: we monitor flights in real time and adjust at no extra cost."
+    },
+    "q2": {
+      "category": "logistics",
+      "q": "What types of vehicles do you have available?",
+      "a": "We have a varied fleet to accommodate groups of any size: from private cars for 1–3 people to vans and minibuses with capacity for up to 20 passengers. Whether you're traveling as a couple, a family, a group of friends, or a corporate team — we have the right vehicle. Write to us and we'll confirm availability based on your group size."
+    },
+    "q3": {
+      "category": "logistics",
+      "q": "Do you offer transfers between cities, like Cusco to Puno?",
+      "a": "Yes, we offer private transportation between Cusco, Puno, Ollantaytambo, Aguas Calientes, and other destinations on the southern Andean circuit. We also arrange airport drop-offs for your departure flight, timed to your exact schedule."
+    },
+    "q4": {
+      "category": "tours",
+      "q": "What tours do you offer in Cusco?",
+      "a": "We offer all types of tours in Cusco and the surrounding region: city tour of the historic center, Sacred Valley of the Incas tour, Machu Picchu excursion, and tours to Chinchero, Pisac, Moray, and Maras, among others. We also create fully custom tours based on your interests and available time. Tell us what you have in mind and we'll organize it."
+    },
+    "q5": {
+      "category": "tours",
+      "q": "Can you organize my full Machu Picchu tour?",
+      "a": "Yes. We handle everything: transportation from Cusco to Ollantaytambo, train to Aguas Calientes, entrance to the citadel, and a certified guide. Machu Picchu entry tickets have limited availability and sell out fast — we recommend booking at least one week in advance. Contact us and we'll put together the complete package."
+    },
+    "q6": {
+      "category": "tours",
+      "q": "Are tours private or shared?",
+      "a": "All our services are fully private. You won't share a vehicle or guide with anyone outside your group. This allows us to adapt the pace, stops, and schedule exactly to your needs, without being tied to a fixed group itinerary."
+    },
+    "q7": {
+      "category": "tours",
+      "q": "Do your guides speak English?",
+      "a": "Yes, our guides are bilingual in Spanish and English. For groups requiring other languages, we can arrange this with advance notice. We'll always confirm your guide before the tour so you can ask any questions ahead of time."
+    },
+    "q8": {
+      "category": "booking",
+      "q": "How can I book?",
+      "a": "You can book directly on our website using the reservation form, or write to us on WhatsApp if you'd prefer to discuss the details before confirming. On WhatsApp we're available every day from 6am to 10pm and can help you build the ideal package for your itinerary."
+    },
+    "q9": {
+      "category": "booking",
+      "q": "How do payments work?",
+      "a": "On the website, payments are processed securely through PayPal. If you book via WhatsApp, we accept any payment method: bank transfer, Wise, cash in soles or USD at the start of the service, or whatever works best for you. No surcharges on any method."
+    },
+    "q10": {
+      "category": "booking",
+      "q": "Can I cancel or reschedule?",
+      "a": "Yes. Cancellations made more than 48 hours in advance receive a full refund. For later cancellations, we review each case individually — we understand that travel plans can change. Rescheduling is always available at no extra cost, subject to availability."
+    },
+    "q11": {
+      "category": "health",
+      "q": "What should I do if I feel altitude sickness?",
+      "a": "Cusco sits at 3,400 meters above sea level, and some fatigue or headache on your first day is completely normal. We recommend arriving a day before any strenuous activity, staying well hydrated, avoiding heavy meals, and drinking coca tea. Our guides know the symptoms and are trained to assist you if you feel unwell during the tour."
+    },
+    "q12": {
+      "category": "health",
+      "q": "Are there any medical restrictions for the tours?",
+      "a": "Most of our tours don't require special physical fitness. If you have high blood pressure, heart conditions, or respiratory issues, we recommend consulting your doctor before traveling to high altitude. Let us know your situation when booking and we'll design an itinerary that works for you."
+    },
+    "q13": {
+      "category": "trust",
+      "q": "Is Mascca Tours officially registered?",
+      "a": "Yes. We are a formally registered company in Peru with an active RUC (tax ID) and guides licensed by the Ministry of Foreign Trade and Tourism (MINCETUR). You can request our registration details at any time."
+    },
+    "q14": {
+      "category": "trust",
+      "q": "What happens if something goes wrong during the tour?",
+      "a": "Our support line is available every day from 6am to 10pm. If anything comes up — weather, vehicle issue, emergency, change of plans — we'll contact you immediately and find the best solution. Your peace of mind is part of the service."
+    }
   },
   "testimonials": {
     "t1": { "name": "Emma, UK", "text": "Seamless Machu Picchu day — punctual driver, knowledgeable guide, stunning views." },
@@ -165,7 +242,7 @@
   },
   "contact": {
     "title": "Contact",
-    "subtitle": "We’re here to plan your Cusco adventure. Email masccatourscusco@gmail.com or message us on WhatsApp.",
+    "subtitle": "We're here to plan your Cusco adventure. Email masccatourscusco@gmail.com or message us on WhatsApp.",
     "address": "Cusco, Peru",
     "emailLabel": "Email",
     "phoneLabel": "Phone / WhatsApp",
@@ -190,7 +267,7 @@
     "message": "Additional notes (optional)",
     "submit": "Continue to PayPal",
     "turnstile": "Verify you are human",
-    "successRedirect": "After payment you’ll be redirected to a thank-you page.",
+    "successRedirect": "After payment you'll be redirected to a thank-you page.",
     "step1Title": "Service type",
     "step2Title": "Service details",
     "step3Title": "Contact & payment",
@@ -238,8 +315,8 @@
     "usd": "USD"
   },
   "whatsapp": {
-    "welcome": "Hello Mascca Tours! I’d love to plan my trip to Cusco.",
-    "reservation": "Hello Mascca Tours! I’d like to book:\n🗺️ Tour/service: {service}\n📅 Preferred date: \n👥 Number of people: \n📝 Notes:"
+    "welcome": "Hello Mascca Tours! I'd love to plan my trip to Cusco.",
+    "reservation": "Hello Mascca Tours! I'd like to book:\n🗺️ Tour/service: {service}\n📅 Preferred date: \n👥 Number of people: \n📝 Notes:"
   },
   "paypal": {
     "pay": "Pay with PayPal",
