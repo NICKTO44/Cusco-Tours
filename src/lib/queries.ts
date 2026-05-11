@@ -1,8 +1,5 @@
 import { client } from './sanity'
 
-const SANITY_IMG_PARAMS = '?w=1200&q=85&fit=max&auto=format'
-const GALLERY_IMG_PARAMS = '?w=800&q=85&fit=max&auto=format'
-
 export async function getTours() {
   const tours = await client.fetch(`
     *[_type == "tour"] | order(_createdAt asc) {
@@ -15,17 +12,14 @@ export async function getTours() {
       description,
       descriptionEn,
       includes,
-      "image": image.asset->url,
+      includesEn,
+      notIncludes,
+      notIncludesEn,
+      "image": image.asset->url + "?w=1400&q=90&fit=max&auto=format",
       "gallery": gallery[].asset->url,
     }
   `)
-
-  // Agregar parámetros de optimización a las URLs de Sanity
-  return tours?.map((tour: any) => ({
-    ...tour,
-    image: tour.image ? `${tour.image}${SANITY_IMG_PARAMS}` : tour.image,
-    gallery: tour.gallery?.map((url: string) => `${url}${GALLERY_IMG_PARAMS}`) ?? [],
-  }))
+  return tours ?? []
 }
 
 export async function getTourBySlug(slug: string) {
@@ -40,18 +34,15 @@ export async function getTourBySlug(slug: string) {
       description,
       descriptionEn,
       includes,
-      "image": image.asset->url,
-      "gallery": gallery[].asset->url,
+      includesEn,
+      notIncludes,
+      notIncludesEn,
+      "image": image.asset->url + "?w=1400&q=90&fit=max&auto=format",
+      "gallery": gallery[].asset->url + "?w=800&q=85&fit=max&auto=format",
     }
   `, { slug })
 
-  if (!tour) return null
-
-  return {
-    ...tour,
-    image: tour.image ? `${tour.image}${SANITY_IMG_PARAMS}` : tour.image,
-    gallery: tour.gallery?.map((url: string) => `${url}${GALLERY_IMG_PARAMS}`) ?? [],
-  }
+  return tour ?? null
 }
 
 export async function getGallery() {

@@ -39,7 +39,25 @@ export const tourSchema = {
     },
     {
       name: 'includes',
-      title: 'Que incluye',
+      title: 'Que incluye (Español)',
+      type: 'array',
+      of: [{ type: 'string' }],
+    },
+    {
+      name: 'includesEn',
+      title: 'Que incluye (English)',
+      type: 'array',
+      of: [{ type: 'string' }],
+    },
+    {
+      name: 'notIncludes',
+      title: 'Que NO incluye (Español)',
+      type: 'array',
+      of: [{ type: 'string' }],
+    },
+    {
+      name: 'notIncludesEn',
+      title: 'Que NO incluye (English)',
       type: 'array',
       of: [{ type: 'string' }],
     },
