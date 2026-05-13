@@ -1,8 +1,8 @@
 {
   "metadata": {
-   "title": "Cusco Mascca Tours | Tours y Taxi VIP en Cusco, Perú",
-   "description": "Agencia de tours en Cusco: Machu Picchu, Montaña de Colores, Valle Sagrado y taxi VIP aeropuerto. Mejor tarifa garantizada, sin cargos ocultos. Reservas 24/7."
- },
+  "title": "Cusco Mascca Tours | Agencia de Tours y Movilidad Privada en Cusco, Perú",
+  "description": "Agencia de tours en Cusco: Machu Picchu, Montaña de Colores, Valle Sagrado, Glaciar Quelccaya y taxi VIP aeropuerto. Guías bilingües, flota propia. Mejor tarifa garantizada. Reservas 24/7."
+},
    "nav": {
      "tours": "Tours",
      "mobility": "Movilidad",
@@ -24,10 +24,16 @@
      "subtitle": "Tours y Movilidad Privada — 24/7",
      "slogan": "Mejor tarifa asegurada | Sin cargos ocultos | Reservas 24/7",
      "ctaTours": "Ver Tours",
-     "ctaWhatsapp": "WhatsApp"
+     "ctaWhatsapp": "WhatsApp",
+     "eyebrow": "Agencia de tours y movilidad privada · Cusco, Perú",
+    "ariaLabel": "Sección principal — Mascca Tours Cusco, agencia de turismo y movilidad privada",
+    "videoTitle": "Tours en Cusco Perú — Machu Picchu, Montaña de Colores, Valle Sagrado",
+    "imageAlt": "Vista de Machu Picchu desde la Puerta del Sol — Tours en Cusco Perú con Mascca Tours",
+    "ctaToursAria": "Ver todos los tours disponibles en Cusco",
+    "ctaWhatsappAria": "Contactar a Mascca Tours por WhatsApp para planear tu viaje a Cusco"
    },
    "sections": {
-     "featuredTours": "Tours destacados",
+     "featuredTours": "Tours destacados en Cusco",
      "featuredToursDesc": "Experiencias seleccionadas con precios claros y guías expertos.",
      "privateMobility": "Movilidad privada",
      "privateMobilityDesc": "Vehículos modernos y conductores profesionales — tu horario, tu ruta.",
@@ -40,7 +46,9 @@
      "finalCtaDesc": "Escríbenos por WhatsApp — respondemos rápido y personalizamos cada viaje.",
      "viewAllTours": "Ver todos los tours",
      "viewGallery": "Galería completa",
-     "viewFaq": "Más preguntas"
+     "viewFaq": "Más preguntas",
+     "featuredToursEyebrow": "Tours en Cusco, Perú",
+     "viewAllToursAria": "Ver todos los tours disponibles en Cusco y alrededores"
    },
    "why": {
      "fleet": { "title": "Flota propia", "desc": "Vehículos que operamos y cuidamos para traslados seguros y puntuales." },

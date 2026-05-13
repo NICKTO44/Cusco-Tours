@@ -1,7 +1,7 @@
 {
-  "metadata": {
-  "title": "Cusco Mascca Tours | Tours & VIP Taxi in Cusco, Peru",
-  "description": "Travel agency in Cusco: Machu Picchu tours, Rainbow Mountain, Sacred Valley & VIP airport taxi. Best rates guaranteed, no hidden fees. Book 24/7."
+ "metadata": {
+  "title": "Cusco Mascca Tours | Tours & Private Transfer Agency in Cusco, Peru",
+  "description": "Tour agency in Cusco, Peru: Machu Picchu, Rainbow Mountain, Sacred Valley, Quelccaya Glacier & VIP airport taxi. Bilingual guides, private fleet. Best rates guaranteed. Book 24/7."
 },
   "nav": {
     "tours": "Tours",
@@ -24,10 +24,16 @@
     "subtitle": "Tours & Private Mobility — 24/7",
     "slogan": "Best rate guaranteed | No hidden fees | 24/7 bookings",
     "ctaTours": "View tours",
-    "ctaWhatsapp": "WhatsApp"
+    "ctaWhatsapp": "WhatsApp",
+    "eyebrow": "Tour & private mobility agency · Cusco, Peru",
+    "ariaLabel": "Main section — Mascca Tours Cusco, tour and private mobility agency",
+    "videoTitle": "Tours in Cusco Peru — Machu Picchu, Rainbow Mountain, Sacred Valley",
+    "imageAlt": "View of Machu Picchu from the Sun Gate — Tours in Cusco Peru with Mascca Tours",
+    "ctaToursAria": "View all available tours in Cusco",
+    "ctaWhatsappAria": "Contact Mascca Tours on WhatsApp to plan your trip to Cusco"
   },
   "sections": {
-    "featuredTours": "Featured tours",
+    "featuredTours": "Featured tours in Cusco",
     "featuredToursDesc": "Hand-picked experiences with transparent pricing and expert guides.",
     "privateMobility": "Private mobility",
     "privateMobilityDesc": "Modern vehicles and professional drivers — your schedule, your route.",
@@ -40,7 +46,9 @@
     "finalCtaDesc": "Message us on WhatsApp — we reply fast and tailor every trip.",
     "viewAllTours": "View all tours",
     "viewGallery": "Full gallery",
-    "viewFaq": "More questions"
+    "viewFaq": "More questions",
+    "featuredToursEyebrow": "Tours in Cusco, Peru",
+    "viewAllToursAria": "View all available tours in Cusco and surroundings"
   },
   "why": {
     "fleet": { "title": "Own fleet", "desc": "Vehicles we maintain and operate for punctual, safe rides." },

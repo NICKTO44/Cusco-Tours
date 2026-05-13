@@ -8,14 +8,26 @@ export async function FeaturedToursSection({ tours }: { tours: any[] }) {
   const featured = tours.filter((x) => x.highlight === true);
 
   return (
-    <section className="bg-earth-100/60 pt-16 pb-4 md:pt-24 md:pb-6" id="tours">
+    <section
+      className="bg-earth-100/60 pt-16 pb-4 md:pt-24 md:pb-6"
+      id="tours"
+      aria-labelledby="featured-tours-heading"
+    >
       <div className="mx-auto max-w-6xl px-4">
         <FadeIn>
-          <h2 className="font-display text-3xl font-bold text-jungle-800 md:text-4xl">
+          {/* Eyebrow — señal semántica para Google */}
+          <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-jungle-500">
+            {t("featuredToursEyebrow")}
+          </p>
+          <h2
+            id="featured-tours-heading"
+            className="font-display text-3xl font-bold text-jungle-800 md:text-4xl"
+          >
             {t("featuredTours")}
           </h2>
           <p className="mt-3 max-w-2xl text-earth-700">{t("featuredToursDesc")}</p>
         </FadeIn>
+
         <div className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {featured.length === 0 && (
             <p className="text-earth-500">No hay tours destacados aún.</p>
@@ -26,10 +38,12 @@ export async function FeaturedToursSection({ tours }: { tours: any[] }) {
             </FadeIn>
           ))}
         </div>
+
         <FadeIn delay={0.2} className="mt-12 text-center">
           <Link
             href="/tours"
             className="inline-flex rounded-full border-2 border-jungle-600 px-8 py-3 font-semibold text-jungle-700 transition hover:bg-jungle-600 hover:text-white"
+            aria-label={t("viewAllToursAria")}
           >
             {t("viewAllTours")}
           </Link>
