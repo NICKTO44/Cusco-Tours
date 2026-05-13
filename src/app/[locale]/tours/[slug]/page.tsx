@@ -8,6 +8,7 @@ import { getTourBySlug as getLocalTour } from "@/data/tours";
 import { BookingButtons } from "@/components/booking/BookingButtons";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { GalleryLightbox } from "@/components/tours/GalleryLightbox";
+import { TourJsonLd } from "@/components/JsonLd";
 import type { Metadata } from "next";
 
 // Siempre revalidar — evita que Next.js cachee contenido de Sanity
@@ -25,22 +26,68 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const t = await getTranslations("tours");
   const name = tour.name ?? t(`items.${tour.slug}.name`);
-  const desc =
+  const descRaw =
     tour.descriptionEn && locale === "en"
       ? tour.descriptionEn
       : tour.description ?? t(`items.${tour.slug}.long`);
+
+  // Descripción enriquecida para SEO: añade precio y duración si caben
+  const priceSnippet = tour.priceUsd
+    ? locale === "en"
+      ? ` From $${tour.priceUsd} USD per person.`
+      : ` Desde $${tour.priceUsd} USD por persona.`
+    : "";
+  const desc = `${descRaw?.slice(0, 140)}${priceSnippet}`.slice(0, 160);
+
   const image =
     tour.image ??
     "https://images.unsplash.com/photo-1587595431973-160d0d94add1?w=1400&q=90";
 
+  // Keywords específicas por tour
+  const keywordsEs = [
+    name,
+    `${name} Cusco`,
+    `tour ${name}`,
+    "tours Cusco Perú",
+    "agencia de viajes Cusco",
+    "Mascca Tours",
+    ...(tour.difficulty ? [`tour ${tour.difficulty.toLowerCase()} Cusco`] : []),
+  ];
+  const keywordsEn = [
+    name,
+    `${name} Cusco Peru`,
+    `${name} tour`,
+    "Cusco tours Peru",
+    "travel agency Cusco",
+    "Mascca Tours",
+    ...(tour.difficulty ? [`${tour.difficulty.toLowerCase()} tour Cusco`] : []),
+  ];
+
   return {
     title: `${name} | Mascca Tours Cusco`,
-    description: desc?.slice(0, 160),
-    alternates: { canonical: `${base}/${locale}/tours/${slug}` },
+    description: desc,
+    keywords: locale === "en" ? keywordsEn : keywordsEs,
+    alternates: {
+      canonical: `${base}/${locale}/tours/${slug}`,
+      languages: {
+        es: `${base}/es/tours/${slug}`,
+        en: `${base}/en/tours/${slug}`,
+      },
+    },
     openGraph: {
+      type: "website",
+      locale: locale === "en" ? "en_US" : "es_PE",
+      url: `${base}/${locale}/tours/${slug}`,
+      siteName: "Mascca Tours Cusco",
       title: `${name} | Mascca Tours Cusco`,
-      description: desc?.slice(0, 160),
+      description: desc,
       images: [{ url: image, width: 1400, height: 700, alt: name }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${name} | Mascca Tours Cusco`,
+      description: desc,
+      images: [image],
     },
   };
 }
@@ -111,6 +158,11 @@ export default async function TourDetailPage({ params }: Props) {
     .split("\n")
     .map((l: string) => l.trim())
     .filter((l: string) => l.length > 0);
+
+  // Duración en formato ISO 8601 para Schema.org (ej: PT8H)
+  const durationISO = tour.durationHours
+    ? `PT${tour.durationHours}H`
+    : "";
 
   return (
     <article className="bg-earth-50 min-h-screen">
@@ -365,6 +417,17 @@ export default async function TourDetailPage({ params }: Props) {
 
         </div>
       </div>
+
+      {/* Schema.org por tour — ayuda a Google a mostrar rich results */}
+      <TourJsonLd
+        name={name}
+        description={longDesc?.slice(0, 200) ?? ""}
+        image={imageUrl}
+        price={tour.priceUsd ?? 0}
+        duration={durationISO}
+        slug={slug}
+        includes={includesList}
+      />
 
     </article>
   );
