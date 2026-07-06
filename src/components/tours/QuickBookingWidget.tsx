@@ -96,10 +96,16 @@ export function QuickBookingWidget({ tourSlug, tourName, priceUsd, locale }: Pro
           </label>
           <p className="text-[11px] text-jungle-600 font-medium mt-0.5">12+ años</p>
           <input
-            type="number"
-            min={1}
+            type="text"
+            inputMode="numeric"
+            pattern="[0-9]*"
             value={adults}
-            onChange={(e) => setAdults(Math.max(1, Number(e.target.value) || 1))}
+            onFocus={(e) => e.currentTarget.select()}
+            onChange={(e) => {
+              const digits = e.target.value.replace(/\D/g, "");
+              const n = digits === "" ? 1 : parseInt(digits, 10);
+              setAdults(Math.max(1, n));
+            }}
             className={inputClasses}
           />
         </div>
@@ -109,10 +115,16 @@ export function QuickBookingWidget({ tourSlug, tourName, priceUsd, locale }: Pro
           </label>
           <p className="text-[11px] text-jungle-600 font-medium mt-0.5">2-11 años</p>
           <input
-            type="number"
-            min={0}
+            type="text"
+            inputMode="numeric"
+            pattern="[0-9]*"
             value={children}
-            onChange={(e) => setChildren(Math.max(0, Number(e.target.value) || 0))}
+            onFocus={(e) => e.currentTarget.select()}
+            onChange={(e) => {
+              const digits = e.target.value.replace(/\D/g, "");
+              const n = digits === "" ? 0 : parseInt(digits, 10);
+              setChildren(Math.max(0, n));
+            }}
             className={inputClasses}
           />
         </div>
