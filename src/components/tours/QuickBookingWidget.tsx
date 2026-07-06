@@ -25,6 +25,10 @@ export function QuickBookingWidget({ tourSlug, tourName, priceUsd, locale }: Pro
   const [children, setChildren] = useState(0);
   const [hotel, setHotel] = useState("");
 
+  // Texto visible en los inputs — separado del número real usado para calcular precio
+  const [adultsInput, setAdultsInput] = useState(String(2));
+  const [childrenInput, setChildrenInput] = useState(String(0));
+
   const total = useMemo(
     () => getTourTotalUsd(tourSlug, adults, children, priceUsd),
     [tourSlug, adults, children, priceUsd]
@@ -99,12 +103,17 @@ export function QuickBookingWidget({ tourSlug, tourName, priceUsd, locale }: Pro
             type="text"
             inputMode="numeric"
             pattern="[0-9]*"
-            value={adults}
-            onFocus={(e) => e.currentTarget.select()}
+            value={adultsInput}
+            onFocus={() => setAdultsInput("")}
             onChange={(e) => {
               const digits = e.target.value.replace(/\D/g, "");
-              const n = digits === "" ? 1 : parseInt(digits, 10);
-              setAdults(Math.max(1, n));
+              setAdultsInput(digits);
+              if (digits !== "") setAdults(Math.max(1, parseInt(digits, 10)));
+            }}
+            onBlur={() => {
+              const n = adultsInput === "" ? 1 : Math.max(1, parseInt(adultsInput, 10) || 1);
+              setAdults(n);
+              setAdultsInput(String(n));
             }}
             className={inputClasses}
           />
@@ -118,12 +127,17 @@ export function QuickBookingWidget({ tourSlug, tourName, priceUsd, locale }: Pro
             type="text"
             inputMode="numeric"
             pattern="[0-9]*"
-            value={children}
-            onFocus={(e) => e.currentTarget.select()}
+            value={childrenInput}
+            onFocus={() => setChildrenInput("")}
             onChange={(e) => {
               const digits = e.target.value.replace(/\D/g, "");
-              const n = digits === "" ? 0 : parseInt(digits, 10);
-              setChildren(Math.max(0, n));
+              setChildrenInput(digits);
+              if (digits !== "") setChildren(Math.max(0, parseInt(digits, 10)));
+            }}
+            onBlur={() => {
+              const n = childrenInput === "" ? 0 : Math.max(0, parseInt(childrenInput, 10) || 0);
+              setChildren(n);
+              setChildrenInput(String(n));
             }}
             className={inputClasses}
           />
@@ -143,8 +157,8 @@ export function QuickBookingWidget({ tourSlug, tourName, priceUsd, locale }: Pro
         />
       </div>
 
-     {/* Caja de total — más discreta */}
-     <div className="rounded-lg border border-gold-200 bg-gold-50/60 px-4 py-2.5 flex items-center justify-between">
+      {/* Caja de total — más discreta */}
+      <div className="rounded-lg border border-gold-200 bg-gold-50/60 px-4 py-2.5 flex items-center justify-between">
         <p className="text-[10px] font-bold uppercase tracking-widest text-earth-500">
           {isEs ? "Total a pagar" : "Total to pay"}
         </p>
