@@ -9,6 +9,7 @@ import { Footer } from "@/components/layout/Footer";
 import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
 import { HtmlLang } from "@/components/layout/HtmlLang";
 import { JsonLd } from "@/components/JsonLd";
+import ElfsightPopup from "@/components/integrations/ElfsightPopup";
 
 type Props = {
   children: React.ReactNode;
@@ -80,11 +81,15 @@ export default async function LocaleLayout({ children, params }: Props) {
     <NextIntlClientProvider messages={messages}>
       <JsonLd />
       <HtmlLang />
+  
       <div className="flex min-h-screen flex-col">
         <Navbar />
         <MainOffset>{children}</MainOffset>
         <Footer />
         <WhatsAppFloat />
+  
+        {/* Popup de Elfsight */}
+        <ElfsightPopup />
       </div>
     </NextIntlClientProvider>
   );
