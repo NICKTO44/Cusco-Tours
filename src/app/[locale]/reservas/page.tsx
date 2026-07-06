@@ -1,5 +1,6 @@
 export const revalidate = 60
 
+import { Suspense } from "react";
 import { setRequestLocale } from "next-intl/server";
 import { getTranslations } from "next-intl/server";
 import { ReservationForm } from "@/components/reservations/ReservationForm";
@@ -43,11 +44,13 @@ export default async function ReservationsPage({ params }: Props) {
           <p className="mt-4 max-w-2xl text-lg text-earth-700">{t("subtitle")}</p>
         </FadeIn>
         <FadeIn delay={0.06} className="mt-12 rounded-2xl border border-earth-200 bg-white p-6 shadow-lg md:p-10">
-          <ReservationForm
-            sanityTours={tours}
-            sanityRoutes={sanityRoutes?.length > 0 ? sanityRoutes : null}
-            locale={locale}
-          />
+          <Suspense fallback={<div className="text-earth-500 text-sm">Cargando...</div>}>
+            <ReservationForm
+              sanityTours={tours}
+              sanityRoutes={sanityRoutes?.length > 0 ? sanityRoutes : null}
+              locale={locale}
+            />
+          </Suspense>
         </FadeIn>
       </div>
     </div>

@@ -10,6 +10,8 @@ import { FadeIn } from "@/components/ui/FadeIn";
 import { GalleryLightbox } from "@/components/tours/GalleryLightbox";
 import { TourJsonLd } from "@/components/JsonLd";
 import type { Metadata } from "next";
+import { QuickBookingWidget } from "@/components/tours/QuickBookingWidget";
+import { ParsedTourDescription } from "@/components/tours/parseTourDescription";
 
 // Siempre revalidar — evita que Next.js cachee contenido de Sanity
 export const revalidate = 0;
@@ -229,21 +231,7 @@ export default async function TourDetailPage({ params }: Props) {
             {descParagraphs.length > 0 && (
               <FadeIn delay={0.05}>
                 <section className="mb-10">
-                  <div className="space-y-5">
-                    {descParagraphs.map((line: string, i: number) => (
-                      <p
-                        key={i}
-                        className="text-earth-800"
-                        style={{
-                          fontFamily: "'Georgia', 'Times New Roman', serif",
-                          fontSize: "1.0625rem",
-                          lineHeight: "1.9",
-                        }}
-                      >
-                        {line}
-                      </p>
-                    ))}
-                  </div>
+                  <ParsedTourDescription text={longDesc} />
                 </section>
               </FadeIn>
             )}
@@ -319,96 +307,93 @@ export default async function TourDetailPage({ params }: Props) {
             <aside className="w-full lg:w-[300px] shrink-0">
               <div className="sticky top-24 rounded-2xl overflow-hidden shadow-2xl">
 
-                {/* Cabecera premium */}
-                <div
-                  className="relative px-6 pt-7 pb-6 text-white overflow-hidden"
-                  style={{ background: "linear-gradient(145deg, #0f2a1a 0%, #1a4a2e 50%, #2d6a47 100%)" }}
+              {/* Cabecera de precio — azul celeste, compacta */}
+              <div
+                  className="relative px-6 pt-5 pb-4 text-white overflow-hidden"
+                  style={{ background: "linear-gradient(145deg, #0c4a6e 0%, #0369a1 50%, #38bdf8 100%)" }}
                 >
                   {/* Círculo decorativo de fondo */}
                   <div
-                    className="absolute -top-8 -right-8 w-40 h-40 rounded-full opacity-10"
-                    style={{ background: "radial-gradient(circle, #d4a843 0%, transparent 70%)" }}
+                    className="absolute -top-8 -right-8 w-32 h-32 rounded-full opacity-10"
+                    style={{ background: "radial-gradient(circle, #ffffff 0%, transparent 70%)" }}
                   />
 
-                  <p className="text-xs uppercase tracking-[0.18em] text-white/40 mb-3">
+                  <p className="text-xs uppercase tracking-[0.18em] text-white/50 mb-2">
                     {locale === "en" ? "Price per person" : "Precio por persona"}
                   </p>
 
                   <div className="flex items-end gap-2 mb-1">
                     <span
                       className="font-bold leading-none"
-                      style={{ fontSize: "3.25rem", color: "#d4a843", textShadow: "0 0 30px rgba(212,168,67,0.3)" }}
+                      style={{ fontSize: "2.1rem", color: "#ffffff" }}
                     >
                       ${tour.priceUsd}
                     </span>
-                    <span className="text-base text-white/35 mb-1.5">USD</span>
+                    <span className="text-sm text-white/50 mb-0.5">USD</span>
                   </div>
-                  <p className="text-xs text-white/30">{t("pricePerPersonGroup")}</p>
-
-                  {/* Separador con gradiente */}
-                  <div className="mt-5 h-px" style={{ background: "linear-gradient(to right, transparent, rgba(255,255,255,0.15), transparent)" }} />
+                  <p className="text-xs text-white/40">{t("pricePerPersonGroup")}</p>
                 </div>
 
-                {/* Info rápida */}
-                <div className="bg-white px-5 py-5 space-y-1 border-b border-stone-100">
-
-                  <div className="flex items-center gap-3 py-2.5 border-b border-stone-50">
-                    <span className="inline-flex items-center justify-center w-9 h-9 rounded-xl shrink-0"
-                      style={{ background: "linear-gradient(135deg, #f0faf4, #dcf5e7)" }}>
-                      <svg className="w-4 h-4 text-jungle-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
-                      </svg>
-                    </span>
-                    <div>
-                      <p className="text-[10px] font-semibold uppercase tracking-widest text-earth-400">
-                        {locale === "en" ? "Duration" : "Duración"}
-                      </p>
-                      <p className="text-sm font-bold text-earth-900 mt-0.5">{duration}</p>
+                {/* Info rápida — doble columna para ahorrar espacio */}
+                <div className="bg-white px-5 py-4 border-b border-stone-100">
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="flex items-center gap-2.5">
+                      <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg shrink-0"
+                        style={{ background: "linear-gradient(135deg, #f0faf4, #dcf5e7)" }}>
+                        <svg className="w-3.5 h-3.5 text-jungle-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                        </svg>
+                      </span>
+                      <div className="min-w-0">
+                        <p className="text-[9px] font-semibold uppercase tracking-widest text-earth-400 truncate">
+                          {locale === "en" ? "Duration" : "Duración"}
+                        </p>
+                        <p className="text-xs font-bold text-earth-900 mt-0.5 truncate">{duration}</p>
+                      </div>
                     </div>
+
+                    {diffLabel && diffConf && (
+                      <div className="flex items-center gap-2.5">
+                        <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg shrink-0"
+                          style={{ background: "linear-gradient(135deg, #f0faf4, #dcf5e7)" }}>
+                          <svg className="w-3.5 h-3.5 text-jungle-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                          </svg>
+                        </span>
+                        <div className="min-w-0">
+                          <p className="text-[9px] font-semibold uppercase tracking-widest text-earth-400 truncate">
+                            {locale === "en" ? "Difficulty" : "Dificultad"}
+                          </p>
+                          <p className="text-xs font-bold text-earth-900 mt-0.5 truncate">{diffLabel}</p>
+                        </div>
+                      </div>
+                    )}
+
+                    {includesList.length > 0 && (
+                      <div className="flex items-center gap-2.5 col-span-2">
+                        <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg shrink-0"
+                          style={{ background: "linear-gradient(135deg, #f0faf4, #dcf5e7)" }}>
+                          <svg className="w-3.5 h-3.5 text-jungle-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                          </svg>
+                        </span>
+                        <div className="min-w-0">
+                          <p className="text-[9px] font-semibold uppercase tracking-widest text-earth-400">
+                            {locale === "en" ? "Included" : "Incluido"}
+                          </p>
+                          <p className="text-xs font-bold text-earth-900 mt-0.5">
+                            {includesList.length}{" "}
+                            {locale === "en" ? "services" : "servicios"}
+                          </p>
+                        </div>
+                      </div>
+                    )}
                   </div>
-
-                  {diffLabel && diffConf && (
-                    <div className="flex items-center gap-3 py-2.5 border-b border-stone-50">
-                      <span className="inline-flex items-center justify-center w-9 h-9 rounded-xl shrink-0"
-                        style={{ background: "linear-gradient(135deg, #f0faf4, #dcf5e7)" }}>
-                        <svg className="w-4 h-4 text-jungle-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                          <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                        </svg>
-                      </span>
-                      <div>
-                        <p className="text-[10px] font-semibold uppercase tracking-widest text-earth-400">
-                          {locale === "en" ? "Difficulty" : "Dificultad"}
-                        </p>
-                        <p className="text-sm font-bold text-earth-900 mt-0.5">{diffLabel}</p>
-                      </div>
-                    </div>
-                  )}
-
-                  {includesList.length > 0 && (
-                    <div className="flex items-center gap-3 py-2.5">
-                      <span className="inline-flex items-center justify-center w-9 h-9 rounded-xl shrink-0"
-                        style={{ background: "linear-gradient(135deg, #f0faf4, #dcf5e7)" }}>
-                        <svg className="w-4 h-4 text-jungle-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                      </span>
-                      <div>
-                        <p className="text-[10px] font-semibold uppercase tracking-widest text-earth-400">
-                          {locale === "en" ? "Included" : "Incluido"}
-                        </p>
-                        <p className="text-sm font-bold text-earth-900 mt-0.5">
-                          {includesList.length}{" "}
-                          {locale === "en" ? "services" : "servicios"}
-                        </p>
-                      </div>
-                    </div>
-                  )}
-
                 </div>
 
-                {/* CTAs */}
+                  {/* Widget de reserva rápida */}
                 <div className="bg-white px-5 py-5">
-                  <BookingButtons serviceLabel={name} />
+                  <QuickBookingWidget tourSlug={slug} tourName={name} priceUsd={tour.priceUsd} locale={locale} />
                 </div>
 
               </div>

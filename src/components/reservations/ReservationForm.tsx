@@ -13,6 +13,8 @@ import { getTourTotalUsd } from "@/lib/pricing";
 import type { WizardReservationValues } from "@/types";
 import { SITE, whatsappHref } from "@/data/site";
 import { useRouter } from "@/i18n/routing";
+import { useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 
 const paypalClientId = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID ?? "";
 const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? "";
@@ -75,6 +77,34 @@ export function ReservationForm({ sanityTours, sanityRoutes, locale }: Props) {
     mode: "onChange",
     defaultValues,
   });
+  const searchParams = useSearchParams();
+
+  // Precarga desde QuickBookingWidget (página de tour) via query params
+  useEffect(() => {
+    const tourSlug = searchParams.get("tourSlug");
+    if (!tourSlug) return;
+
+    setValue("serviceType", "tour", { shouldValidate: true });
+    setValue("tourSlug", tourSlug, { shouldValidate: true });
+
+    const date = searchParams.get("date");
+    if (date) setValue("tourDate", date, { shouldValidate: true });
+
+    const adultsParam = searchParams.get("adults");
+    if (adultsParam) setValue("adults", Number(adultsParam) || 1, { shouldValidate: true });
+
+    const childrenParam = searchParams.get("children");
+    if (childrenParam) setValue("children", Number(childrenParam) || 0, { shouldValidate: true });
+
+    const hotel = searchParams.get("hotel");
+    if (hotel) setValue("hotelPickup", hotel, { shouldValidate: true });
+
+    const time = searchParams.get("time");
+    if (time) setValue("pickupTimeApprox", time, { shouldValidate: true });
+    // Salta directo al paso de datos de contacto — ya tiene tour, fecha, personas y hotel
+    setStep(2);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const serviceType = watch("serviceType");
   const tourSlug = watch("tourSlug");
