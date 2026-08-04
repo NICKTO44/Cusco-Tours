@@ -2,8 +2,8 @@ import type { PrivateRoute, Vehicle } from "@/types";
 
 /** Intro copy — source of truth per client brief (bilingual). */
 export const MOBILITY_INTRO = {
-  es: "Movilidad Privada Cusco Mascca Tours ofrece servicio de Taxi VIP, con traslado desde y hacia el aeropuerto de Cusco, el Valle Sagrado, entre otras ciudades de Cusco, hoteles, residencias privadas y estaciones de tren, terminal terrestre de Cusco, las 24 horas del día, los 7 días de la semana.",
-  en: "Mascca Tours Cusco Private Mobility offers VIP taxi service with transfers to and from Cusco airport, the Sacred Valley, other destinations in the Cusco region, hotels, private residences, train stations, and the Cusco bus terminal — 24 hours a day, 7 days a week.",
+  es: "Taxi Aeropuerto y Movilidad Privada en Cusco, le ofrece un servicio de transporte turístico seguro, puntual y cómodo con flota propia, viajes seguros,  conductores profesionales,  Realizamos traslados desde y hacia el Aeropuerto de Cusco, hoteles, estación de tren de Ollantaytambo, Hidroeléctrica, Valle Sagrado, Machu Picchu y todos los principales destinos turísticos. Viaje con total tranquilidad disfrutando de atención personalizada, vehículos modernos y tarifas competitivas para viajeros individuales, familias y grupos.",
+  en: "Airport Taxi and Private Transport in Cusco, offers a secure, punctual, and comfortable tourist transport service with its own fleet, safe journeys, professional drivers, we carry out transfers from and to the Cusco Airport, hotels, Ollantaytambo train station, Hidroeléctrica, Sacred Valley, Machu Picchu and all the main tourist destinations. Travel with total peace of mind enjoying personalized attention, modern vehicles and competitive rates for individual travelers, families and groups.",
 } as const;
 
 export const VEHICLES: Vehicle[] = [
