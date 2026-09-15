@@ -7,6 +7,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { MainOffset } from "@/components/layout/MainOffset";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
+import { SocialSidebar } from "@/components/layout/SocialSidebar";
 import { HtmlLang } from "@/components/layout/HtmlLang";
 import { JsonLd } from "@/components/JsonLd";
 import ElfsightPopup from "@/components/integrations/ElfsightPopup";
@@ -87,6 +88,8 @@ export default async function LocaleLayout({ children, params }: Props) {
         <MainOffset>{children}</MainOffset>
         <Footer />
         <WhatsAppFloat />
+        <SocialSidebar />
+
   
         {/* Popup de Elfsight */}
         <ElfsightPopup />
