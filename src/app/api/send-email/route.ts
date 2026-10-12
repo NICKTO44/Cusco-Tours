@@ -86,7 +86,7 @@ export async function POST(req: Request) {
             <div style="background: #e8f5e9; border-radius: 8px; padding: 16px; margin: 20px 0;">
               <p style="margin: 0;"><strong>¿Preguntas?</strong> Escríbenos por WhatsApp:</p>
               <p style="margin: 8px 0 0;">
-                <a href="https://wa.me/51927591622" style="color: #2d6a4f; font-weight: bold;">+51 927 591 622</a>
+                <a href="https://wa.me/51935220779" style="color: #2d6a4f; font-weight: bold;">+51 935 220 779</a>
               </p>
             </div>
           </div>

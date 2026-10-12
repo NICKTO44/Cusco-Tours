@@ -133,7 +133,7 @@ export function FaqAccordion({ items, categories, className = "" }: Props) {
                         </p>
                         {showCta && (
                           <a
-                            href="https://wa.me/51927591622"
+                            href="https://wa.me/51935220779"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-gold-700 transition hover:text-gold-600 hover:underline"

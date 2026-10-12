@@ -77,7 +77,7 @@ export default async function FaqPage({ params }: Props) {
               <p className="mt-2 text-sm text-earth-300">{t("ctaSubtitle")}</p>
               <div className="mt-5 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
                 <a
-                  href="https://wa.me/51927591622"
+                  href="https://wa.me/51935220779"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-full bg-gold-500 px-6 py-3 text-sm font-semibold text-jungle-900 transition hover:bg-gold-400"

@@ -14,11 +14,11 @@ export function JsonLd() {
     image: "https://cuscomasccatour.com/og-image.jpg",
     description:
       "Agencia de tours y movilidad privada en Cusco, Perú. Tours a Machu Picchu, Montaña de Colores, Glaciar Quelccaya, Valle Sagrado y taxi VIP aeropuerto Cusco.",
-    telephone: "+51927591622",
+    telephone: "+51935220779",
     email: "masccatourscusco@gmail.com",
     sameAs: [
       "https://www.facebook.com/movilidadprivadacusco",
-      "https://wa.me/51927591622",
+      "https://wa.me/51935220779",
     ],
     address: {
       "@type": "PostalAddress",
@@ -139,7 +139,7 @@ export function TourJsonLd({
       "@type": "TravelAgency",
       name: "Mascca Tours Cusco",
       url: base,
-      telephone: "+51927591622",
+      telephone: "+51935220779",
     },
     offers: {
       "@type": "Offer",

@@ -1,7 +1,7 @@
 export const SITE = {
   name: "Cusco Mascca Tours",
-  whatsappE164: "51927591622",
-  whatsappDisplay: "+51 927 591 622",
+  whatsappE164: "51935220779",
+  whatsappDisplay: "+51 935 220 779",
   email: "masccatourscusco@gmail.com",
   url: "https://cuscomasccatour.com",
 } as const;
